@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- 安全性配置 -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+  
+  <!-- SEO优化 -->
+  <title>About Us - Markdown to PDF Converter | Free Online Tool</title>
+  <meta name="description" content="Learn about our free Markdown to PDF converter tool. Convert Markdown files to PDF, Word, and PNG formats quickly and securely in your browser.">
+  <meta name="keywords" content="about markdown converter, markdown to pdf tool, free converter, online document converter, markdown tool">
+  
+  <!-- Open Graph标签 -->
+  <meta property="og:title" content="About Markdown to PDF Converter">
+  <meta property="og:description" content="Free, fast, and secure online tool to convert Markdown files to multiple formats.">
+  <meta property="og:type" content="website">
+  
+  <!-- 样式 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8fafc;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* 导航栏 */
+    .navbar {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px 0;
+      margin-bottom: 40px;
+    }
+    
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-brand {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+    
+    .nav-links a {
+      color: #64748b;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 500;
+    }
+    
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+    
+    /* 主要内容 */
+    .main-content {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .page-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .page-subtitle {
+      font-size: 18px;
+      color: #6b7280;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    /* 章节样式 */
+    .section {
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .section:last-child {
+      border-bottom: none;
+    }
+    
+    .section h2 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .section h3 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #374151;
+      margin: 25px 0 15px 0;
+    }
+    
+    .section p {
+      margin-bottom: 15px;
+      color: #4b5563;
+      font-size: 16px;
+    }
+    
+    .section ul {
+      margin-bottom: 15px;
+      padding-left: 20px;
+    }
+    
+    .section li {
+      margin-bottom: 8px;
+      color: #4b5563;
+    }
+    
+    /* 特色功能网格 */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+    
+    .feature-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+    
+    .feature-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 10px;
+    }
+    
+    .feature-desc {
+      color: #6b7280;
+      font-size: 14px;
+    }
+    
+    /* 统计数据 */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .stat-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    
+    /* 联系信息 */
+    .contact-info {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 25px;
+      text-align: center;
+    }
+    
+    .contact-email {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0369a1;
+      text-decoration: none;
+      margin: 10px 0;
+      display: inline-block;
+    }
+    
+    .contact-email:hover {
+      text-decoration: underline;
+    }
+    
+    /* 技术栈 */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    
+    .tech-tag {
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    /* 页脚 */
+    .footer {
+      background: #1f2937;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+    }
+    
+    .footer a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+    
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .nav-content {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .nav-links a {
+        margin: 0 15px;
+      }
+      
+      .main-content {
+        padding: 20px;
+      }
+      
+      .page-title {
+        font-size: 28px;
+      }
+      
+      .section h2 {
+        font-size: 24px;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .tech-stack {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-content">
+        <div class="nav-brand">
+          <a href="/" style="color: #2563eb; text-decoration: none;">📝 Markdown Converter</a>
+        </div>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/help.html">Help Center</a>
+          <a href="/about.html" style="color: #2563eb; font-weight: 600;">About</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- 面包屑导航 -->
+  <div class="container" style="margin: 20px auto; padding: 0 20px;">
+    <nav aria-label="面包屑导航" style="font-size: 14px; color: #6b7280;">
+      <a href="/" style="color: #2563eb; text-decoration: none;">首页</a>
+      <span style="margin: 0 8px;">›</span>
+      <span style="color: #374151; font-weight: 500;">关于我们</span>
+    </nav>
+  </div>
+  
+  <!-- 主要内容 -->
+  <div class="container">
+    <div class="main-content">
+      <h1 class="page-title">About Our Tool</h1>
+      <p class="page-subtitle">Free, fast, and secure Markdown conversion in your browser</p>
+      
+      <!-- 关于我们 -->
+      <section class="section">
+        <h2>🎯 Our Mission</h2>
+        <p>We believe that document conversion should be simple, fast, and accessible to everyone. Our Markdown to PDF converter was created to provide a free, privacy-focused solution that works entirely in your browser without requiring any software installation or account registration.</p>
+        
+        <p>Whether you're a developer documenting your code, a student writing notes, or a professional creating reports, our tool helps you convert your Markdown content into professional-looking documents in seconds.</p>
+      </section>
+      
+      <!-- 主要功能 -->
+      <section class="section">
+        <h2>✨ Key Features</h2>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <div class="feature-title">Privacy First</div>
+            <div class="feature-desc">All processing happens in your browser. Your files never leave your device.</div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-title">Lightning Fast</div>
+            <div class="feature-desc">Convert your documents instantly without waiting for server processing.</div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🆓</div>
+            <div class="feature-title">Completely Free</div>
+            <div class="feature-desc">No hidden costs, no subscriptions, no limits. Use it as much as you want.</div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <div class="feature-title">Cross-Platform</div>
+            <div class="feature-desc">Works on any device with a modern web browser - desktop, tablet, or mobile.</div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <div class="feature-title">Multiple Formats</div>
+            <div class="feature-desc">Export to PDF, Word (DOCX), and PNG image formats.</div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🌐</div>
+            <div class="feature-title">No Installation</div>
+            <div class="feature-desc">Works directly in your browser. No software to download or install.</div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 支持的功能 -->
+      <section class="section">
+        <h2>🛠️ What We Support</h2>
+        
+        <h3>Input Methods</h3>
+        <ul>
+          <li><strong>File Upload:</strong> Upload .md, .markdown, or .txt files</li>
+          <li><strong>Drag & Drop:</strong> Simply drag your files onto the page</li>
+          <li><strong>Direct Paste:</strong> Copy and paste your Markdown content</li>
+        </ul>
+        
+        <h3>Output Formats</h3>
+        <ul>
+          <li><strong>PDF:</strong> Perfect for sharing, printing, and archiving</li>
+          <li><strong>Word (DOCX):</strong> Compatible with Microsoft Word and other editors</li>
+          <li><strong>PNG Image:</strong> Great for embedding in presentations or websites</li>
+        </ul>
+        
+        <h3>Markdown Features</h3>
+        <ul>
+          <li>Headers (H1-H6)</li>
+          <li>Text formatting (bold, italic, strikethrough)</li>
+          <li>Lists (ordered and unordered)</li>
+          <li>Links and images</li>
+          <li>Code blocks and inline code</li>
+          <li>Tables</li>
+          <li>Blockquotes</li>
+          <li>Horizontal rules</li>
+        </ul>
+      </section>
+      
+      <!-- 技术栈 -->
+      <section class="section">
+        <h2>⚙️ Technology Stack</h2>
+        <p>Our tool is built using modern web technologies to ensure the best performance and compatibility:</p>
+        
+        <div class="tech-stack">
+          <span class="tech-tag">Vue.js 3</span>
+          <span class="tech-tag">JavaScript ES6+</span>
+          <span class="tech-tag">Marked.js</span>
+          <span class="tech-tag">jsPDF</span>
+          <span class="tech-tag">html2canvas</span>
+          <span class="tech-tag">docx.js</span>
+          <span class="tech-tag">DOMPurify</span>
+          <span class="tech-tag">CSS3</span>
+          <span class="tech-tag">HTML5</span>
+        </div>
+      </section>
+      
+      <!-- 使用统计 -->
+      <section class="section">
+        <h2>📊 Usage Statistics</h2>
+        <p>Since our launch, we've helped thousands of users convert their Markdown documents:</p>
+        
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">50K+</div>
+            <div class="stat-label">Documents Converted</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number">25K+</div>
+            <div class="stat-label">Happy Users</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Countries Served</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number">99.9%</div>
+            <div class="stat-label">Uptime</div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 隐私和安全 -->
+      <section class="section">
+        <h2>🔐 Privacy & Security</h2>
+        <p>Your privacy is our top priority. Here's how we protect your data:</p>
+        
+        <ul>
+          <li><strong>No Server Upload:</strong> Your files are processed entirely in your browser</li>
+          <li><strong>No Data Collection:</strong> We don't collect, store, or analyze your documents</li>
+          <li><strong>No Tracking:</strong> We don't use analytics or tracking cookies</li>
+          <li><strong>Open Source:</strong> Our code is transparent and auditable</li>
+          <li><strong>HTTPS Secure:</strong> All connections are encrypted</li>
+        </ul>
+      </section>
+      
+      <!-- 联系我们 -->
+      <section class="section">
+        <h2>📧 Contact Us</h2>
+        
+        <div class="contact-info">
+          <p>Have questions, suggestions, or need help? We'd love to hear from you!</p>
+          <a href="mailto:clairescott2205@gmail.com" class="contact-email">
+            clairescott2205@gmail.com
+          </a>
+          <p>We typically respond within 24 hours.</p>
+        </div>
+        
+        <h3>What You Can Contact Us About</h3>
+        <ul>
+          <li>Technical support and troubleshooting - also check our <a href="/help.html" style="color: #2563eb; text-decoration: none;">帮助中心</a></li>
+          <li>Feature requests and suggestions</li>
+          <li>Bug reports and issues</li>
+          <li>Partnership and collaboration opportunities</li>
+          <li>General feedback and questions</li>
+        </ul>
+      </section>
+      
+      <!-- 未来计划 -->
+      <section class="section">
+        <h2>🚀 Future Plans</h2>
+        <p>We're constantly working to improve our tool. Here's what's coming next:</p>
+        
+        <ul>
+          <li><strong>More Export Formats:</strong> PowerPoint, HTML, and LaTeX support</li>
+          <li><strong>Custom Styling:</strong> Choose from different themes and templates</li>
+          <li><strong>Batch Processing:</strong> Convert multiple files at once</li>
+          <li><strong>API Access:</strong> Integrate our converter into your applications</li>
+          <li><strong>Advanced Features:</strong> Table of contents, page numbers, headers/footers</li>
+        </ul>
+        
+        <div class="contact-info" style="margin-top: 30px;">
+          <p>Ready to try our current features? <a href="/" style="color: #0369a1; font-weight: 600; text-decoration: none;">开始使用我们的转换器</a> 或查看 <a href="/help.html" style="color: #0369a1; font-weight: 600; text-decoration: none;">完整使用指南</a>！</p>
+        </div>
+      </section>
+    </div>
+  </div>
+  
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Markdown Converter. All rights reserved.</p>
+      <p>Contact: <a href="mailto:clairescott2205@gmail.com">clairescott2205@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>

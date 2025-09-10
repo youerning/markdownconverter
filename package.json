@@ -1,0 +1,39 @@
+{
+  "name": "markdown-converter",
+  "version": "1.0.0",
+  "description": "A web tool to convert Markdown files to PDF, Word, and PNG formats",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "http-server dist -p 8080"
+  },
+  "keywords": [
+    "markdown",
+    "markdown to pdf",
+    "markdown to word",
+    "markdown to image",
+    "markdown converter",
+    "pdf generator",
+    "document converter"
+  ],
+  "author": "Claire Scott <clairescott2205@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "docx": "^8.2.2",
+    "dompurify": "^3.0.5",
+    "file-saver": "^2.0.5",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "marked": "^9.1.2",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.3.4",
+    "hono": "^4.9.6",
+    "html-minifier-terser": "^7.2.0",
+    "http-server": "^14.1.1",
+    "vite": "^4.4.9"
+  }
+}

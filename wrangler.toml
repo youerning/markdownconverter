@@ -1,0 +1,34 @@
+name="markdown2pdf"
+
+# 你的 Cloudflare 账户 ID。你可以在 Cloudflare dashboard 的右侧找到它。
+# account_id = "2876773122bca025498ea5444f079a27"
+
+# Worker 的主入口文件。
+main = "cf-src/main.ts"
+
+# 兼容性日期，确保你的 Worker 使用一个稳定的 Workers runtime 版本。
+compatibility_date = "2025-01-01"
+
+[[routes]]
+pattern = "markdowntopdf.top"
+custom_domain = true
+
+[assets]
+directory = "dist/"
+binding = "ASSETS"
+run_worker_first = true
+# html_handling = "none"
+
+[dev]
+port = 8787 
+
+# KV 命名空间配置
+# 加上KV之后感觉慢了很多很多
+# [[kv_namespaces]]
+# binding = "CACHE_KV"
+# id = "6f2082c6ff6b4c6993c7db97fcee8953"
+# preview_id = "e0dab233505e4db0a8a0c0dcf88be832"
+
+[observability]
+enabled = true
+head_sampling_rate = 1 # optional. default = 1.

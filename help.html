@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- 安全性配置 -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+  
+  <!-- SEO优化 -->
+  <title>Help Center - Markdown to PDF Converter | Syntax Guide & Documentation</title>
+  <meta name="description" content="Complete guide to Markdown syntax, conversion tips, and documentation for our free Markdown to PDF converter tool.">
+  <meta name="keywords" content="markdown syntax, markdown guide, markdown tutorial, markdown help, markdown to pdf help, markdown documentation">
+  
+  <!-- Open Graph标签 -->
+  <meta property="og:title" content="Markdown Help Center - Complete Guide">
+  <meta property="og:description" content="Learn Markdown syntax and how to use our converter tool effectively.">
+  <meta property="og:type" content="website">
+  
+  <!-- 样式 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8fafc;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* 导航栏 */
+    .navbar {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px 0;
+      margin-bottom: 40px;
+    }
+    
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-brand {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+    
+    .nav-links a {
+      color: #64748b;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 500;
+    }
+    
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+    
+    /* 主要内容 */
+    .main-content {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .page-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .page-subtitle {
+      font-size: 18px;
+      color: #6b7280;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    /* 目录 */
+    .toc {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .toc h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #374151;
+    }
+    
+    .toc ul {
+      list-style: none;
+    }
+    
+    .toc li {
+      margin-bottom: 8px;
+    }
+    
+    .toc a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .toc a:hover {
+      text-decoration: underline;
+    }
+    
+    /* 章节样式 */
+    .section {
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .section:last-child {
+      border-bottom: none;
+    }
+    
+    .section h2 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 20px;
+      padding-top: 20px;
+    }
+    
+    .section h3 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #374151;
+      margin: 25px 0 15px 0;
+    }
+    
+    .section h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #4b5563;
+      margin: 20px 0 10px 0;
+    }
+    
+    .section p {
+      margin-bottom: 15px;
+      color: #4b5563;
+    }
+    
+    /* 代码样式 */
+    .code-example {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    
+    .code-example h5 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .markdown-code {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 15px;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 14px;
+      overflow-x: auto;
+      margin-bottom: 15px;
+    }
+    
+    .result {
+      background: white;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      padding: 15px;
+    }
+    
+    /* 表格样式 */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    
+    th, td {
+      border: 1px solid #e5e7eb;
+      padding: 12px;
+      text-align: left;
+    }
+    
+    th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #374151;
+    }
+    
+    /* 提示框 */
+    .tip {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 6px;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    
+    .tip-title {
+      font-weight: 600;
+      color: #065f46;
+      margin-bottom: 5px;
+    }
+    
+    .tip-content {
+      color: #047857;
+    }
+    
+    /* 警告框 */
+    .warning {
+      background: #fef3c7;
+      border: 1px solid #fbbf24;
+      border-radius: 6px;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    
+    .warning-title {
+      font-weight: 600;
+      color: #92400e;
+      margin-bottom: 5px;
+    }
+    
+    .warning-content {
+      color: #b45309;
+    }
+    
+    /* 页脚 */
+    .footer {
+      background: #1f2937;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+    }
+    
+    .footer a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+    
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .nav-content {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .nav-links a {
+        margin: 0 15px;
+      }
+      
+      .main-content {
+        padding: 20px;
+      }
+      
+      .page-title {
+        font-size: 28px;
+      }
+      
+      .section h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-content">
+        <div class="nav-brand">
+          <a href="/" style="color: #2563eb; text-decoration: none;">📝 Markdown Converter</a>
+        </div>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/help.html" style="color: #2563eb; font-weight: 600;">Help Center</a>
+          <a href="/about.html">About</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- 面包屑导航 -->
+  <div class="container" style="margin: 20px auto; padding: 0 20px;">
+    <nav aria-label="breadcrumb navigation" style="font-size: 14px; color: #6b7280;">
+      <a href="/" style="color: #2563eb; text-decoration: none;">Home</a>
+      <span style="margin: 0 8px;">›</span>
+      <span style="color: #374151; font-weight: 500;">Help Center</span>
+    </nav>
+  </div>
+  
+  <!-- 主要内容 -->
+  <div class="container">
+    <div class="main-content">
+      <h1 class="page-title">Help Center</h1>
+      <p class="page-subtitle">Complete guide to Markdown syntax and our converter tool</p>
+      
+      <!-- 目录 -->
+      <div class="toc">
+        <h3>📋 Table of Contents</h3>
+        <ul>
+          <li><a href="#what-is">What is Markdown?</a></li>
+          <li><a href="#syntax">Markdown Syntax Guide</a></li>
+          <li><a href="#differences">Markdown vs Other Formats</a></li>
+          <li><a href="#converter-tips">Using Our Converter</a></li>
+          <li><a href="#troubleshooting">Troubleshooting</a></li>
+        </ul>
+      </div>
+      
+      <!-- 什么是Markdown -->
+      <section id="what-is" class="section">
+        <h2>📖 What is Markdown?</h2>
+        <p>Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. <a href="https://en.wikipedia.org/wiki/Markdown">Created by John Gruber in 2004</a>, Markdown is now one of the world's most popular markup languages.</p>
+        
+        <h3>Why Use Markdown?</h3>
+        <ul>
+          <li><strong>Simple:</strong> Easy to learn and write</li>
+          <li><strong>Portable:</strong> Works on any device and platform</li>
+          <li><strong>Platform Independent:</strong> Create content that can be used anywhere</li>
+          <li><strong>Future Proof:</strong> Plain text format that will always be readable</li>
+          <li><strong>Everywhere:</strong> Used by GitHub, Reddit, Discord, and many other platforms</li>
+        </ul>
+        
+        <div class="tip">
+          <div class="tip-title">💡 Pro Tip</div>
+          <div class="tip-content">Markdown files typically use the .md or .markdown file extension.</div>
+        </div>
+      </section>
+      
+      <!-- Markdown语法指南 -->
+      <section id="syntax" class="section">
+        <h2>📝 Markdown Syntax Guide</h2>
+        
+        <h3>Headers</h3>
+        <div class="code-example">
+          <h5>Markdown:</h5>
+          <div class="markdown-code"># H1 Header
+## H2 Header
+### H3 Header
+#### H4 Header
+##### H5 Header
+###### H6 Header</div>
+          <h5>Result:</h5>
+          <div class="result">
+            <h1 style="font-size: 24px; margin: 5px 0;">H1 Header</h1>
+            <h2 style="font-size: 20px; margin: 5px 0;">H2 Header</h2>
+            <h3 style="font-size: 18px; margin: 5px 0;">H3 Header</h3>
+            <h4 style="font-size: 16px; margin: 5px 0;">H4 Header</h4>
+            <h5 style="font-size: 14px; margin: 5px 0;">H5 Header</h5>
+            <h6 style="font-size: 12px; margin: 5px 0;">H6 Header</h6>
+          </div>
+        </div>
+        
+        <h3>Text Formatting</h3>
+        <div class="code-example">
+          <h5>Markdown:</h5>
+          <div class="markdown-code">**Bold text**
+*Italic text*
+***Bold and italic***
+~~Strikethrough~~
+`Inline code`</div>
+          <h5>Result:</h5>
+          <div class="result">
+            <strong>Bold text</strong><br>
+            <em>Italic text</em><br>
+            <strong><em>Bold and italic</em></strong><br>
+            <del>Strikethrough</del><br>
+            <code style="background: #f1f5f9; padding: 2px 4px; border-radius: 3px;">Inline code</code>
+          </div>
+        </div>
+        
+        <h3>Lists</h3>
+        <div class="code-example">
+          <h5>Markdown:</h5>
+          <div class="markdown-code">## Unordered List
+- Item 1
+- Item 2
+  - Nested item
+  - Another nested item
+- Item 3
+
+## Ordered List
+1. First item
+2. Second item
+3. Third item</div>
+          <h5>Result:</h5>
+          <div class="result">
+            <h4>Unordered List</h4>
+            <ul>
+              <li>Item 1</li>
+              <li>Item 2
+                <ul>
+                  <li>Nested item</li>
+                  <li>Another nested item</li>
+                </ul>
+              </li>
+              <li>Item 3</li>
+            </ul>
+            <h4>Ordered List</h4>
+            <ol>
+              <li>First item</li>
+              <li>Second item</li>
+              <li>Third item</li>
+            </ol>
+          </div>
+        </div>
+        
+        <h3>Links and Images</h3>
+        <div class="code-example">
+          <h5>Markdown:</h5>
+          <div class="markdown-code">[Link text](https://example.com)
+[Link with title](https://example.com "Link title")
+
+![Alt text](image.jpg)
+![Alt text](image.jpg "Image title")</div>
+          <h5>Result:</h5>
+          <div class="result">
+            <a href="https://example.com">Link text</a><br>
+            <a href="https://example.com" title="Link title">Link with title</a><br><br>
+            <em>Images would be displayed here</em>
+          </div>
+        </div>
+        
+        <h3>Code Blocks</h3>
+        <div class="code-example">
+          <h5>Markdown:</h5>
+          <div class="markdown-code">```javascript
+function hello() {
+    console.log("Hello, World!");
+}
+```</div>
+          <h5>Result:</h5>
+          <div class="result">
+            <pre style="background: #1f2937; color: #f9fafb; padding: 15px; border-radius: 4px; overflow-x: auto;"><code>function hello() {
+    console.log("Hello, World!");
+}</code></pre>
+          </div>
+        </div>
+        
+        <h3>Tables</h3>
+        <div class="code-example">
+          <h5>Markdown:</h5>
+          <div class="markdown-code">| Header 1 | Header 2 | Header 3 |
+|----------|----------|----------|
+| Cell 1   | Cell 2   | Cell 3   |
+| Cell 4   | Cell 5   | Cell 6   |</div>
+          <h5>Result:</h5>
+          <div class="result">
+            <table style="border-collapse: collapse; width: 100%;">
+              <thead>
+                <tr>
+                  <th style="border: 1px solid #ddd; padding: 8px; background: #f9f9f9;">Header 1</th>
+                  <th style="border: 1px solid #ddd; padding: 8px; background: #f9f9f9;">Header 2</th>
+                  <th style="border: 1px solid #ddd; padding: 8px; background: #f9f9f9;">Header 3</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border: 1px solid #ddd; padding: 8px;">Cell 1</td>
+                  <td style="border: 1px solid #ddd; padding: 8px;">Cell 2</td>
+                  <td style="border: 1px solid #ddd; padding: 8px;">Cell 3</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #ddd; padding: 8px;">Cell 4</td>
+                  <td style="border: 1px solid #ddd; padding: 8px;">Cell 5</td>
+                  <td style="border: 1px solid #ddd; padding: 8px;">Cell 6</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <h3>Blockquotes</h3>
+        <div class="code-example">
+          <h5>Markdown:</h5>
+          <div class="markdown-code">> This is a blockquote.
+> It can span multiple lines.
+>
+> And have multiple paragraphs.</div>
+          <h5>Result:</h5>
+          <div class="result">
+            <blockquote style="border-left: 4px solid #ddd; padding-left: 16px; margin: 0; color: #666;">
+              This is a blockquote.<br>
+              It can span multiple lines.<br><br>
+              And have multiple paragraphs.
+            </blockquote>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Markdown与其他格式的区别 -->
+      <section id="differences" class="section">
+        <h2>⚖️ Markdown vs Other Formats</h2>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Markdown</th>
+              <th>HTML</th>
+              <th>Word</th>
+              <th>LaTeX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Learning Curve</td>
+              <td>✅ Very Easy</td>
+              <td>⚠️ Moderate</td>
+              <td>✅ Easy</td>
+              <td>❌ Difficult</td>
+            </tr>
+            <tr>
+              <td>File Size</td>
+              <td>✅ Very Small</td>
+              <td>✅ Small</td>
+              <td>❌ Large</td>
+              <td>✅ Small</td>
+            </tr>
+            <tr>
+              <td>Platform Support</td>
+              <td>✅ Universal</td>
+              <td>✅ Universal</td>
+              <td>⚠️ Limited</td>
+              <td>⚠️ Limited</td>
+            </tr>
+            <tr>
+              <td>Version Control</td>
+              <td>✅ Excellent</td>
+              <td>✅ Good</td>
+              <td>❌ Poor</td>
+              <td>✅ Good</td>
+            </tr>
+            <tr>
+              <td>Formatting Control</td>
+              <td>⚠️ Basic</td>
+              <td>✅ Full</td>
+              <td>✅ Full</td>
+              <td>✅ Excellent</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3>When to Use Markdown</h3>
+        <ul>
+          <li><strong>Documentation:</strong> README files, wikis, technical docs</li>
+          <li><strong>Blogging:</strong> Many platforms support Markdown</li>
+          <li><strong>Note-taking:</strong> Simple, portable notes</li>
+          <li><strong>Email:</strong> Plain text that's easy to read</li>
+          <li><strong>Forums:</strong> GitHub, Reddit, Stack Overflow</li>
+        </ul>
+      </section>
+      
+      <!-- 转换器使用技巧 -->
+      <section id="converter-tips" class="section">
+        <h2>🛠️ Using Our Converter</h2>
+        
+        <h3>Supported Input Methods</h3>
+        <ul>
+          <li><strong>File Upload:</strong> Upload .md, .markdown, or .txt files</li>
+          <li><strong>Drag & Drop:</strong> Simply drag your file onto the upload area</li>
+          <li><strong>Text Paste:</strong> Copy and paste your Markdown content directly</li>
+        </ul>
+        
+        <h3>Output Formats</h3>
+        <ul>
+          <li><strong>PDF:</strong> Perfect for sharing and printing documents</li>
+          <li><strong>Word:</strong> Compatible with Microsoft Word and similar editors</li>
+          <li><strong>PNG:</strong> Image format for embedding in presentations</li>
+        </ul>
+        
+        <div class="tip">
+          <div class="tip-title">💡 Best Practices</div>
+          <div class="tip-content">
+            <ul>
+              <li>Use proper heading hierarchy (H1 → H2 → H3)</li>
+              <li>Keep lines under 80 characters for better readability</li>
+              <li>Use blank lines to separate sections</li>
+              <li>Test your Markdown in the preview before converting</li>
+            </ul>
+          </div>
+        </div>
+        
+        <h3>Embedding Our Tool</h3>
+        <p>You can embed our converter on your website using the provided iframe code. This allows your users to convert Markdown files without leaving your site. <a href="/" style="color: #2563eb; text-decoration: none;">试用我们的转换器</a> 来体验完整功能。</p>
+        
+        <div class="code-example">
+          <h5>Embed Code:</h5>
+          <div class="markdown-code">&lt;iframe src="https://markdowntopdf.top" width="800" height="600" frameborder="0"&gt;&lt;/iframe&gt;</div>
+        </div>
+      </section>
+      
+      <!-- 故障排除 -->
+      <section id="troubleshooting" class="section">
+        <h2>🔧 Troubleshooting</h2>
+        
+        <h3>Common Issues</h3>
+        
+        <h4>File Upload Problems</h4>
+        <ul>
+          <li><strong>File not recognized:</strong> Ensure your file has a .md, .markdown, or .txt extension</li>
+          <li><strong>File too large:</strong> Our tool works best with files under 10MB</li>
+          <li><strong>Special characters:</strong> Use UTF-8 encoding for international characters</li>
+        </ul>
+        
+        <h4>Conversion Issues</h4>
+        <ul>
+          <li><strong>Missing formatting:</strong> Check that your Markdown syntax is correct</li>
+          <li><strong>Broken images:</strong> Ensure image URLs are accessible and valid</li>
+          <li><strong>Table formatting:</strong> Make sure table syntax follows Markdown standards</li>
+        </ul>
+        
+        <div class="warning">
+          <div class="warning-title">⚠️ Browser Compatibility</div>
+          <div class="warning-content">Our tool works best in modern browsers (Chrome, Firefox, Safari, Edge). Some features may not work in older browsers.</div>
+        </div>
+        
+        <h3>Getting Help</h3>
+        <p>If you're still experiencing issues:</p>
+        <ul>
+          <li>Check that JavaScript is enabled in your browser</li>
+          <li>Try refreshing the page and attempting the conversion again</li>
+          <li>Visit our <a href="/" style="color: #2563eb; text-decoration: none;">主页</a> to try the converter again</li>
+          <li>Learn more <a href="/about.html" style="color: #2563eb; text-decoration: none;">关于我们</a> and our mission</li>
+          <li>Contact us at <a href="mailto:clairescott2205@gmail.com">clairescott2205@gmail.com</a> with details about your issue</li>
+        </ul>
+        
+        <div class="tip">
+          <div class="tip-title">🚀 Ready to Convert?</div>
+          <div class="tip-content">
+            Now that you've learned about Markdown, <a href="/" style="color: #047857; font-weight: 600; text-decoration: none;">试试我们的在线转换器</a> 来将您的Markdown文件转换为PDF、Word或PNG格式！
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Markdown Converter. All rights reserved.</p>
+      <p>Contact: <a href="mailto:clairescott2205@gmail.com">clairescott2205@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>

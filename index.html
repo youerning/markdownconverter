@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- 广告配置 -->
+  <meta name="google-adsense-account" content="ca-pub-6354650525060962">
+
+  <!-- 安全性配置 -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+  
+  <!-- SEO优化 - 核心关键词和描述 -->
+  <title>Markdown to PDF Converter - Convert Markdown to PDF, Word, PNG Online</title>
+  <meta name="description" content="Free online tool to convert Markdown files to PDF, Word, and PNG formats. Fast, secure, and easy-to-use markdown converter with no file upload required.">
+  <meta name="keywords" content="markdown to pdf, markdown converter, markdown to word, markdown to image, markdown to png, pdf generator, document converter">
+  
+  <!-- Open Graph标签用于社交分享 -->
+  <meta property="og:title" content="Markdown to PDF Converter - Free Online Tool">
+  <meta property="og:description" content="Convert your Markdown files to PDF, Word, and PNG formats instantly. No registration required.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://markdowntopdf.top">
+  
+  <!-- Twitter Card标签 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Markdown to PDF Converter">
+  <meta name="twitter:description" content="Free online markdown converter tool">
+  
+  <!-- 多语言支持 - hreflang标签 -->
+  <link rel="alternate" hreflang="en" href="https://markdowntopdf.top/" />
+  <link rel="alternate" hreflang="zh-CN" href="https://markdowntopdf.top/?lang=zh" />
+  <link rel="alternate" hreflang="x-default" href="https://markdowntopdf.top/" />
+  
+  <!-- 增强的结构化数据用于搜索引擎 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Markdown to PDF Converter",
+    "alternateName": "Markdown Converter Tool",
+    "description": "Free online tool to convert Markdown files to PDF, Word, and PNG formats. Fast, secure, and easy-to-use markdown converter with no file upload required.",
+    "url": "https://markdowntopdf.top",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Web Browser",
+    "browserRequirements": "Requires JavaScript. Compatible with Chrome, Firefox, Safari, Edge.",
+    "softwareVersion": "1.0.0",
+    "datePublished": "2024-01-15",
+    "dateModified": "2024-01-15",
+    "author": {
+      "@type": "Person",
+      "name": "Claire Scott",
+      "email": "clairescott2205@gmail.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Markdown Converter"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "featureList": [
+      "Convert Markdown to PDF",
+      "Convert Markdown to Word (DOCX)",
+      "Convert Markdown to PNG image",
+      "Real-time preview",
+      "Multi-language support",
+      "No file upload required",
+      "Client-side processing"
+    ],
+    "screenshot": "https://markdowntopdf.top/screenshot.png",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "150",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  }
+  </script>
+  
+  <!-- 性能优化 - 预加载关键资源 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- PWA配置 -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="MD Converter">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  
+  <!-- 预加载关键资源 - 性能优化 -->
+  <!-- 预加载关键CSS和JS文件 -->
+  <link rel="modulepreload" href="/src/main.js">
+  <link rel="prefetch" href="/src/components/HomePage.vue">
+  <!-- DNS预解析优化 -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  
+  <!-- 图标 -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- SEO链接 - 帮助搜索引擎发现相关页面 -->
+  <link rel="alternate" href="/help.html" title="Help Center - Markdown Syntax Guide">
+  <link rel="alternate" href="/about.html" title="About - Markdown Converter Tool">
+  
+  <!-- 样式文件 -->
+  <link rel="stylesheet" href="/src/styles/main.css">
+  
+  <!-- 关键CSS内联优化 -->
+  <style>
+    /* 关键渲染路径CSS - 避免FOUC */
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      background-color: #f8fafc;
+    }
+    #app {
+      min-height: 100vh;
+    }
+    .navbar {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    /* 加载动画 */
+    .loading-spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #2563eb;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- 主应用容器 -->
+  <div id="app">
+    <!-- 应用加载时的占位内容 -->
+    <div class="loading-spinner" id="initial-loader"></div>
+  </div>
+  
+  <!-- PWA Service Worker 注册 -->
+  <script>
+    // 注册 Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW Registration successful:', registration);
+            
+            // 检查更新
+            registration.addEventListener('updatefound', () => {
+              const newWorker = registration.installing;
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // 新版本可用，提示用户刷新
+                  if (confirm('A new version has been detected. Would you like to update now?')) {
+                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                    window.location.reload();
+                  }
+                }
+              });
+            });
+          })
+          .catch(error => {
+            console.log('SW Registration failed:', error);
+          });
+      });
+      
+      // 监听 SW 控制器变化
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload();
+      });
+    }
+  </script>
+  
+  <!-- Vue.js应用入口 -->
+  <script type="module" src="/src/main.js"></script>
+  
+  <!-- 无JavaScript时的降级提示和静态导航 -->
+  <noscript>
+    <style>
+      .static-header {
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        margin-bottom: 40px;
+      }
+      .static-nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .static-brand {
+        font-size: 24px;
+        font-weight: 700;
+        color: #2563eb;
+        text-decoration: none;
+      }
+      .static-links {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+      .static-links a {
+        color: #64748b;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 8px 16px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+      }
+      .static-links a:hover {
+        color: #2563eb;
+        background-color: #f1f5f9;
+      }
+      .static-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        text-align: center;
+        font-family: 'Inter', Arial, sans-serif;
+      }
+      .static-content h1 {
+        font-size: 36px;
+        color: #1f2937;
+        margin-bottom: 20px;
+      }
+      .static-content h2 {
+        font-size: 24px;
+        color: #374151;
+        margin: 30px 0 15px 0;
+      }
+      .static-content p {
+        font-size: 18px;
+        color: #6b7280;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+      .static-content ul {
+        text-align: left;
+        max-width: 600px;
+        margin: 20px auto;
+      }
+      .static-content li {
+        margin-bottom: 10px;
+        color: #4b5563;
+      }
+      .js-notice {
+        background: #fef3c7;
+        border: 1px solid #f59e0b;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 30px 0;
+      }
+      .js-notice h3 {
+        color: #92400e;
+        margin-bottom: 10px;
+      }
+      @media (max-width: 768px) {
+        .static-nav {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .static-links {
+          justify-content: center;
+        }
+        .static-content h1 {
+          font-size: 28px;
+        }
+      }
+    </style>
+    
+    <!-- 静态导航栏 -->
+    <header class="static-header">
+      <nav class="static-nav">
+        <a href="/" class="static-brand">📝 Markdown Converter</a>
+        <div class="static-links">
+          <a href="/">Home</a>
+          <a href="/help.html">Help Center</a>
+          <a href="/about.html">About</a>
+        </div>
+      </nav>
+    </header>
+    
+    <!-- 静态内容 -->
+    <div class="static-content">
+      <h1>Markdown to PDF Converter</h1>
+      <p>Free online tool to convert Markdown files to PDF, Word, and PNG formats</p>
+      
+      <div class="js-notice">
+        <h3>⚠️ JavaScript Required for Full Functionality</h3>
+        <p>This application requires JavaScript to access the conversion features. Please enable JavaScript in your browser for the best experience.</p>
+      </div>
+      
+      <h2>🔗 Available Pages</h2>
+      <p>You can still access our static pages:</p>
+      <ul>
+        <li><strong><a href="/help.html">Help Center</a></strong> - Learn about Markdown syntax and how to use our converter</li>
+        <li><strong><a href="/about.html">About</a></strong> - Learn more about our tool and contact information</li>
+      </ul>
+      
+      <h2>✨ What You Can Do With JavaScript Enabled</h2>
+      <ul>
+        <li>Upload Markdown files or paste text directly</li>
+        <li>Convert to PDF, Word (DOCX), and PNG formats</li>
+        <li>Real-time preview of your Markdown content</li>
+        <li>Multi-language support (English/Chinese)</li>
+        <li>Social sharing and embed code generation</li>
+        <li>Completely secure - all processing happens in your browser</li>
+      </ul>
+      
+      <p><strong>Enable JavaScript and refresh this page to start converting your Markdown files!</strong></p>
+    </div>
+  </noscript>
+</body>
+</html>
