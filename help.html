@@ -201,6 +201,9 @@
       font-size: 14px;
       overflow-x: auto;
       margin-bottom: 15px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      line-height: 1.5;
     }
     
     .result {
@@ -208,6 +211,17 @@
       border: 1px solid #d1d5db;
       border-radius: 4px;
       padding: 15px;
+    }
+    
+    /* 修复列表项目符号超出容器的问题 */
+    .result ul, .result ol {
+      padding-left: 25px;
+      margin: 10px 0;
+    }
+    
+    .result ul ul, .result ol ol {
+      padding-left: 20px;
+      margin: 5px 0;
     }
     
     /* 表格样式 */
@@ -628,7 +642,7 @@ function hello() {
         </div>
         
         <h3>Embedding Our Tool</h3>
-        <p>You can embed our converter on your website using the provided iframe code. This allows your users to convert Markdown files without leaving your site. <a href="/" style="color: #2563eb; text-decoration: none;">试用我们的转换器</a> 来体验完整功能。</p>
+        <p>You can embed our converter on your website using the provided iframe code. This allows your users to convert Markdown files without leaving your site.</p>
         
         <div class="code-example">
           <h5>Embed Code:</h5>
@@ -666,15 +680,15 @@ function hello() {
         <ul>
           <li>Check that JavaScript is enabled in your browser</li>
           <li>Try refreshing the page and attempting the conversion again</li>
-          <li>Visit our <a href="/" style="color: #2563eb; text-decoration: none;">主页</a> to try the converter again</li>
-          <li>Learn more <a href="/about.html" style="color: #2563eb; text-decoration: none;">关于我们</a> and our mission</li>
+          <li>Visit our <a href="/" style="color: #2563eb; text-decoration: none;">Home Page</a> to try the converter again</li>
+          <li>Learn more <a href="/about.html" style="color: #2563eb; text-decoration: none;">about us</a> and our mission</li>
           <li>Contact us at <a href="mailto:clairescott2205@gmail.com">clairescott2205@gmail.com</a> with details about your issue</li>
         </ul>
         
         <div class="tip">
           <div class="tip-title">🚀 Ready to Convert?</div>
           <div class="tip-content">
-            Now that you've learned about Markdown, <a href="/" style="color: #047857; font-weight: 600; text-decoration: none;">试试我们的在线转换器</a> 来将您的Markdown文件转换为PDF、Word或PNG格式！
+            Now that you've learned about Markdown, <a href="/" style="color: #047857; font-weight: 600; text-decoration: none;">try our online converter</a> to convert your Markdown files to PDF, Word, or PNG formats!
           </div>
         </div>
       </section>

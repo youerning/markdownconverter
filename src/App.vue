@@ -54,9 +54,9 @@
       <div class="footer-content">
         <p>&copy; 2025 Markdown Converter. {{ t('footer.rights') }}</p>
         <p>{{ t('footer.contact') }}: 
-          <a href="mailto:clairescott2205@gmail.com" 
+          <a href="mailto:support@markdowntopdf.top" 
              aria-label="Send email to developer"
-             title="Contact us">clairescott2205@gmail.com</a>
+             title="Contact us">support@markdowntopdf.top</a>
         </p>
       </div>
     </footer>
