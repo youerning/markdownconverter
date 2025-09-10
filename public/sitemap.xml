@@ -15,22 +15,22 @@
   
   <!-- help center -->
   <url>
-    <loc>https://markdowntopdf.top/help.html</loc>
+    <loc>https://markdowntopdf.top/help</loc>
     <lastmod>2024-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://markdowntopdf.top/help.html" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markdowntopdf.top/help.html?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://markdowntopdf.top/help" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markdowntopdf.top/help?lang=zh" />
   </url>
   
   <!-- about page -->
   <url>
-    <loc>https://markdowntopdf.top/about.html</loc>
+    <loc>https://markdowntopdf.top/about</loc>
     <lastmod>2024-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://markdowntopdf.top/about.html" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markdowntopdf.top/about.html?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://markdowntopdf.top/about" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markdowntopdf.top/about?lang=zh" />
   </url>
   
 </urlset>

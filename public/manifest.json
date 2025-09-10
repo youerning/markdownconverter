@@ -47,7 +47,20 @@
       "name": "Help Center",
       "short_name": "Help",
       "description": "View Markdown syntax guide",
-      "url": "/help.html",
+      "url": "/help",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "About",
+      "short_name": "About",
+      "description": "Learn more about the Markdown to PDF Converter",
+      "url": "/about",
       "icons": [
         {
           "src": "/favicon.svg",

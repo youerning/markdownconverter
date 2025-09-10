@@ -114,8 +114,8 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   
   <!-- SEO链接 - 帮助搜索引擎发现相关页面 -->
-  <link rel="alternate" href="/help.html" title="Help Center - Markdown Syntax Guide">
-  <link rel="alternate" href="/about.html" title="About - Markdown Converter Tool">
+  <link rel="alternate" href="/help" title="Help Center - Markdown Syntax Guide">
+  <link rel="alternate" href="/about" title="About - Markdown Converter Tool">
   
   <!-- 样式文件 -->
   <link rel="stylesheet" href="/src/styles/main.css">
@@ -140,14 +140,18 @@
     }
     /* 加载动画 */
     .loading-spinner {
-      display: inline-block;
+      display: block;
       width: 40px;
       height: 40px;
       border: 3px solid #f3f3f3;
       border-top: 3px solid #2563eb;
       border-radius: 50%;
       animation: spin 1s linear infinite;
-      margin: 20px auto;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
     }
     @keyframes spin {
       0% { transform: rotate(0deg); }
@@ -304,8 +308,8 @@
         <a href="/" class="static-brand">📝 Markdown Converter</a>
         <div class="static-links">
           <a href="/">Home</a>
-          <a href="/help.html">Help Center</a>
-          <a href="/about.html">About</a>
+          <a href="/help">Help Center</a>
+          <a href="/about">About</a>
         </div>
       </nav>
     </header>
@@ -323,8 +327,8 @@
       <h2>🔗 Available Pages</h2>
       <p>You can still access our static pages:</p>
       <ul>
-        <li><strong><a href="/help.html">Help Center</a></strong> - Learn about Markdown syntax and how to use our converter</li>
-        <li><strong><a href="/about.html">About</a></strong> - Learn more about our tool and contact information</li>
+        <li><strong><a href="/help">Help Center</a></strong> - Learn about Markdown syntax and how to use our converter</li>
+        <li><strong><a href="/about">About</a></strong> - Learn more about our tool and contact information</li>
       </ul>
       
       <h2>✨ What You Can Do With JavaScript Enabled</h2>

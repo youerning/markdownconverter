@@ -16,10 +16,10 @@
              role="menuitem"
              :aria-current="currentPage === 'home' ? 'page' : null"
              aria-label="Return to home page">{{ t('nav.home') }}</a>
-          <a href="/help.html" 
+          <a href="/help" 
              role="menuitem"
              aria-label="help">{{ t('nav.help') }}</a>
-          <a href="/about.html" 
+          <a href="/about" 
              role="menuitem"
              aria-label="about us">{{ t('nav.about') }}</a>
         </div>
