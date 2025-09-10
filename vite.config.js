@@ -38,7 +38,8 @@ export default defineConfig({
               removeEmptyAttributes: true,
               minifyCSS: true,
               minifyJS: true,
-              removeAttributeQuotes: false
+              removeAttributeQuotes: false,
+              preserveLineBreaks: true
             }
             
             // 复制并压缩help.html和about.html到dist目录

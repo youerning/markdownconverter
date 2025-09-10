@@ -197,13 +197,24 @@
       color: #f9fafb;
       padding: 15px;
       border-radius: 4px;
-      font-family: 'Monaco', 'Consolas', monospace;
+      font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
       font-size: 14px;
       overflow-x: auto;
       margin-bottom: 15px;
       white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
       word-wrap: break-word;
+      overflow-wrap: break-word;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
       line-height: 1.5;
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
     }
     
     .result {
