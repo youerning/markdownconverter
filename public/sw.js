@@ -1,5 +1,4 @@
 // Service Worker for Markdown Converter PWA
-// 提供离线功能和缓存策略
 
 const CACHE_NAME = 'markdown-converter-v1';
 const STATIC_CACHE = 'static-v1';
@@ -17,48 +16,48 @@ const STATIC_ASSETS = [
   '/screenshot.png'
 ];
 
-// 安装事件 - 缓存静态资源
+// install event
 self.addEventListener('install', event => {
-  console.log('Service Worker: 正在安装...');
+  console.log('Service Worker: installing...');
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then(cache => {
-        console.log('Service Worker: 缓存静态资源');
+        console.log('Service Worker: cache static assets');
         return cache.addAll(STATIC_ASSETS);
       })
       .then(() => {
-        console.log('Service Worker: 安装完成');
+        console.log('Service Worker: installation completed');
         return self.skipWaiting();
       })
       .catch(err => {
-        console.error('Service Worker: 安装失败', err);
+        console.error('Service Worker: installation failed', err);
       })
   );
 });
 
-// 激活事件 - 清理旧缓存
+// activate event
 self.addEventListener('activate', event => {
-  console.log('Service Worker: 正在激活...');
+  console.log('Service Worker: activating...');
   event.waitUntil(
     caches.keys()
       .then(cacheNames => {
         return Promise.all(
           cacheNames.map(cacheName => {
             if (cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE) {
-              console.log('Service Worker: 删除旧缓存', cacheName);
+              console.log('Service Worker: delete old cache', cacheName);
               return caches.delete(cacheName);
             }
           })
         );
       })
       .then(() => {
-        console.log('Service Worker: 激活完成');
+        console.log('Service Worker: activation completed');
         return self.clients.claim();
       })
   );
 });
 
-// 拦截网络请求
+// fetch event
 self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
@@ -71,34 +70,34 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(request)
       .then(cachedResponse => {
-        // 如果有缓存，直接返回
+        // return directly if the resource is cached
         if (cachedResponse) {
-          console.log('Service Worker: 从缓存返回', request.url);
+          console.log('Service Worker: return cached resource', request.url);
           return cachedResponse;
         }
         
-        // 否则发起网络请求
+        // new request
         return fetch(request)
           .then(response => {
-            // 检查响应是否有效
+            // check response status
             if (!response || response.status !== 200 || response.type !== 'basic') {
               return response;
             }
             
-            // 克隆响应用于缓存
+            // 
             const responseToCache = response.clone();
             
-            // 缓存动态资源
+            // cache dynamic resource
             caches.open(DYNAMIC_CACHE)
               .then(cache => {
-                console.log('Service Worker: 缓存动态资源', request.url);
+                console.log('Service Worker: cache dynamic resource', request.url);
                 cache.put(request, responseToCache);
               });
             
             return response;
           })
           .catch(err => {
-            console.error('Service Worker: 网络请求失败', err);
+            console.error('Service Worker: network request failed', err);
             
             // 如果是HTML请求且网络失败，返回离线页面
             if (request.headers.get('accept').includes('text/html')) {
@@ -111,20 +110,20 @@ self.addEventListener('fetch', event => {
   );
 });
 
-// 处理消息事件
+// message event
 self.addEventListener('message', event => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
-    console.log('Service Worker: 收到跳过等待消息');
+    console.log('Service Worker: received skip waiting message');
     self.skipWaiting();
   }
 });
 
-// 推送通知事件（可选）
+// push event (optional)
 self.addEventListener('push', event => {
-  console.log('Service Worker: 收到推送消息', event);
+  console.log('Service Worker: push message received', event);
   
   const options = {
-    body: event.data ? event.data.text() : '新的更新可用',
+    body: event.data ? event.data.text() : 'New update available',
     icon: '/favicon.svg',
     badge: '/favicon.svg',
     vibrate: [100, 50, 100],
@@ -153,7 +152,7 @@ self.addEventListener('push', event => {
 
 // 通知点击事件
 self.addEventListener('notificationclick', event => {
-  console.log('Service Worker: 通知被点击', event);
+  console.log('Service Worker: notification clicked', event);
   
   event.notification.close();
   

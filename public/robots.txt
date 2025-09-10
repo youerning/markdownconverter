@@ -1,16 +1,13 @@
 # Robots.txt for Markdown to PDF Converter
-# 允许所有搜索引擎爬虫访问网站
+# allow all crawlers
 
 User-agent: *
 Allow: /
 
-# 禁止访问开发和构建文件
-Disallow: /src/
-Disallow: /node_modules/
-Disallow: /.git/
-Disallow: /dist/assets/
+# Disallow
+#Disallow: /src/
 
-# 指向网站地图
+# site map
 Sitemap: https://markdowntopdf.top/sitemap.xml
 
 # 爬取延迟（可选，避免过度爬取）

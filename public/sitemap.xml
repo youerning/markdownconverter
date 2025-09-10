@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <!-- 主页 -->
+  <!-- home page -->
   <url>
     <loc>https://markdowntopdf.top/</loc>
     <lastmod>2024-01-15</lastmod>
@@ -13,7 +13,7 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markdowntopdf.top/?lang=zh" />
   </url>
   
-  <!-- 帮助中心页面 -->
+  <!-- help center -->
   <url>
     <loc>https://markdowntopdf.top/help.html</loc>
     <lastmod>2024-01-15</lastmod>
@@ -23,7 +23,7 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markdowntopdf.top/help.html?lang=zh" />
   </url>
   
-  <!-- 关于页面 -->
+  <!-- about page -->
   <url>
     <loc>https://markdowntopdf.top/about.html</loc>
     <lastmod>2024-01-15</lastmod>
