@@ -30,16 +30,16 @@ export default defineConfig({
             // HTML压缩配置
             const minifyOptions = {
               removeComments: true,
-              removeRedundantAttributes: true,
-              removeScriptTypeAttributes: true,
-              removeStyleLinkTypeAttributes: true,
-              useShortDoctype: true,
-              collapseWhitespace: true,
-              removeEmptyAttributes: true,
-              minifyCSS: true,
-              minifyJS: true,
-              removeAttributeQuotes: false,
-              preserveLineBreaks: true
+              // removeRedundantAttributes: true,
+              // removeScriptTypeAttributes: true,
+              // removeStyleLinkTypeAttributes: true,
+              // useShortDoctype: true,
+              // collapseWhitespace: true,
+              // removeEmptyAttributes: true,
+              minifyCSS: false,
+              // minifyJS: true,
+              // removeAttributeQuotes: false,
+              // preserveLineBreaks: true
             }
             
             // 复制并压缩help.html和about.html到dist目录
