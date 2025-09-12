@@ -1,6 +1,6 @@
 import { Hono } from 'hono';
 import type { Env } from 'hono';
-// import mainMiddleware from './middleware/main.js';
+import mainMiddleware from './middleware/main.js';
 
 // 定义环境变量类型
 interface AppEnv extends Env {
@@ -13,7 +13,7 @@ interface AppEnv extends Env {
 const app = new Hono<{ Bindings: AppEnv }>();
 
 // 全局中间件，用于记录请求并注入 Google Analytics
-// app.use('*', mainMiddleware);
+app.use('*', mainMiddleware);
 
 // 注册 Daily Hot API 路由
 // app.route('/api/daily-hot', createDailyHotApp());

@@ -34,19 +34,6 @@ const gaScript = `<!-- Google tag (gtag.js) -->
 </script>
 `;
 
-/**
- * HTMLRewriter 处理器，用于向 <head> 标签中注入脚本。
- */
-const footerHTML = `
-<footer style="text-align: center; padding: 20px; font-size: 14px; color: #888; border-top: 1px solid #eee; margin-top: 40px;">
-  <p>
-    联系邮箱: <a href="mailto:mail@youerning.top" style="text-decoration: none;">mail@youerning.top</a>
-  </p>
-  <p>
-    小红书: <a href="https://www.xiaohongshu.com/user/profile/67ac9987000000000e01256d" style="text-decoration: none;">邓胖的建站日记</a> | 微信公众号: <a href="https://youerning.top/images/youerbiji.png" style="text-decoration: none;">又耳笔记</a>
-  </p>
-</footer>
-`;
 
 /**
  * HTMLRewriter 处理器，用于向 <body> 标签追加页脚。
@@ -101,18 +88,10 @@ const mainMiddleware: MiddlewareHandler = async (c: Context, next: Next): Promis
   // 在响应发送前注入 GA 脚本
   try {
     const contentType = c.res.headers.get('Content-Type');
-    // 调试日志：输出所有响应头
-    // console.log('--- 响应头信息 ---');
-    // for (const [key, value] of c.res.headers.entries()) {
-    //   console.log(`${key}: ${value}`);
-    // }
-    // console.log('--------------------');
-
     if (contentType && contentType.includes('text/html')) {
       // console.log('检测到 HTML 响应，正在注入 Google Analytics...');
       const rewriter = new HTMLRewriter()
-        .on('head', new HeadInjector(gaScript))
-        .on('body', new BodyInjector(footerHTML));
+        .on('head', new HeadInjector(gaScript));
       c.res = rewriter.transform(c.res);
     }
   } catch (e) {
