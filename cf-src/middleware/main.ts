@@ -15,13 +15,13 @@ declare global {
 // --- Google Analytics 注入逻辑 ---
 
 const gaScript = `<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZWS21RCLH"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CM2CMW7586"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-QZWS21RCLH');
+  gtag('config', 'G-CM2CMW7586');
 </script>
 
 <!-- Bing Clarity -->
